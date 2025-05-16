@@ -40,22 +40,22 @@ export default function AiCoFounderPage() {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, delay: 0.4 }}
       >
-        <div className="w-full shadow-inner bg-[#FFEED3] flex md:py-3 p-2 md:pl-8 rounded-3xl justify-start">
+        <div className="w-full shadow-inner bg-[#FFEED3] flex md:py-3 p-2 md:pl-8 rounded-3xl justify-start md:mt-0 mt-[30px]">
           {/* Input Field */}
           <input
             type="text"
-            className="flex-1 bg-[#FFEED3] border-none focus:outline-none text-3xl md:text-4xl font-normal ml-2"
+            className="flex-1 w-[30px] bg-[#FFEED3] border-none focus:outline-none text-2xl md:text-4xl font-normal  ml-2"
             placeholder="Tell us your ideas"
           />
 
           {/* Submit Button */}
           <motion.button
             type="submit"
-            className="h-[100px] w-[100px] md:h-full"
+            className="h-[50px] w-[100px] md:h-[100px]"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Image src={right} height={74} width={92} alt="Right Icon" />
+            <Image src={right} height={104} width={92} alt="Right Icon" className=" max-w-[60px] max-h-[70px] ml-auto lg:max-w-[90px] lg:max-h-[150px] lg:mr-[10px]"/>
           </motion.button>
         </div>
       </motion.form>

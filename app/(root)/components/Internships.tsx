@@ -88,83 +88,88 @@ const itemVariants: Variants = {
 const Internships = () => {
   return (
     <motion.section
-      className="max-w-[1000px] mx-auto mt-[272px] md:px-0 w-full flex flex-col justify-center items-center"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+  className="max-w-[1000px] mx-auto mt-[272px] md:px-0 w-full flex flex-col justify-center items-center"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.1 }} 
+  variants={containerVariants}
+>
+  <div className="mx-[80px]">
+    <motion.div
+      className="mb-12 text-center lg:text-left"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-7">
+        Internships
+      </h2>
+      <p className="font-[400] text-lg md:text-3xl">
+        Discover exciting internships with impactful youth-led startups
+      </p>
+    </motion.div>
+
+    <motion.div
+      className="space-y-12 md:space-y-16"
       variants={containerVariants}
     >
-      <div className="mx-[80px]">
+      {internships.map(({ title, description, image }, i) => (
         <motion.div
-          className="mb-12 text-center lg:text-left"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          key={i}
+          className=""
+          variants={itemVariants}
+          whileHover={{ scale: 1.03 }}
+          transition={{ type: "spring", stiffness: 300 }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-7">
-            Internships
-          </h2>
-          <p className="font-[400] text-lg md:text-3xl">
-            Discover exciting internships with impactful youth-led startups
-          </p>
+          <Card className="bg-white flex flex-col md:flex-row items-start md:items-center justify-between px-6 md:px-16 py-8 md:py-12 rounded-none rounded-b-xl border-b-[15px] border-b-[#b17e11] text-black">
+            <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-10">
+              <div>
+                <h3 className="font-bold text-[24px] md:text-[36px]">
+                  {title}
+                </h3>
+                <p className="mt-4 text-[16px] md:text-[20px] max-w-3xl">
+                  {description}
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 md:mt-0 self-center md:self-auto">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Image
+                  src={image}
+                  alt={title}
+                  width={220}
+                  height={220}
+                  className="object-contain"
+                />
+              </motion.div>
+            </div>
+          </Card>
         </motion.div>
+      ))}
+    </motion.div>
 
-        <motion.div className="space-y-12 md:space-y-16" variants={containerVariants}>
-          {internships.map(({ title, description, image }, i) => (
-            <motion.div
-              key={i}
-              className=""
-              variants={itemVariants}
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Card className="bg-white flex flex-col md:flex-row items-start md:items-center justify-between px-6 md:px-16 py-8 md:py-12 rounded-none rounded-b-xl border-b-[15px] border-b-[#b17e11] text-black">
-                <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-10">
-                  <div>
-                    <h3 className="font-bold text-[24px] md:text-[36px]">
-                      {title}
-                    </h3>
-                    <p className="mt-4 text-[16px] md:text-[20px] max-w-3xl">
-                      {description}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-6 md:mt-0 self-center md:self-auto">
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                  >
-                    <Image
-                      src={image}
-                      alt={title}
-                      width={220}
-                      height={220}
-                      className="object-contain"
-                    />
-                  </motion.div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+    <motion.div
+      className="mt-8 text-center"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }} 
+      transition={{ delay: 1.2, duration: 0.8 }}
+    >
+      <motion.button
+        className="bg-[#FFB32C] text-[#6B3F2D] hover:bg-[#FDBA3C]/90 py-3 px-9 text-3xl rounded-2xl font-semibold"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        View More
+      </motion.button>
+    </motion.div>
+  </div>
+</motion.section>
 
-        <motion.div
-          className="mt-8 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-        >
-          <motion.button
-            className="bg-[#FFB32C] text-[#6B3F2D] hover:bg-[#FDBA3C]/90 py-3 px-9 text-3xl rounded-2xl font-semibold"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View More
-          </motion.button>
-        </motion.div>
-      </div>
-    </motion.section>
   );
 };
 
