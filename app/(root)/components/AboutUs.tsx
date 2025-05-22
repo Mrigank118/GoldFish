@@ -36,7 +36,7 @@ const AboutUs = () => {
     {
       title: "AI-Powered, Human-Backed",
       content:
-        "Get 24/7 help from your AI Co-founder and access expert mentors to sharpen your pitch, business plan, and product."
+        "Get 24/7 help from your AI Co-founder and access expert mentors to sharpen your pitch, business plan, and product.",
     },
     {
       title: "Real Funding, Real Impact",
@@ -46,11 +46,14 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about-section" className="max-w-6xl mx-auto mt-12 md:mt-44 px-4 md:px-6">
+    <section
+      id="about-section"
+      className="max-w-6xl mx-auto mt-12 md:mt-44 px-4 md:px-6"
+    >
       <FadeInSection>
         <div className="max-w-[740px] mx-auto mb-12 text-center">
           <motion.h2
-            className="text-4xl md:text-6xl font-bold mb-16"
+            className="text-4xl md:text-6xl font-bold mb-14"
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8 }}
@@ -63,9 +66,15 @@ const AboutUs = () => {
             animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris.
+            Goldfish Ladder is a launchpad for high school innovators.
+            <br />
+            We empower teenage founders to take their first steps into
+            entrepreneurship—with tools, mentorship, and real funding. From idea
+            to execution, our platform provides AI support, expert guidance, and
+            opportunities to pitch in our Mini Shark Tank.
+            <br />
+            Our mission is simple: make building a startup as accessible as
+            starting a School project.
           </motion.p>
         </div>
       </FadeInSection>
@@ -73,7 +82,9 @@ const AboutUs = () => {
       <motion.div
         className="bg-[#ffb32c] px-2 py-6 md:px-16 md:py-11 rounded-3xl   md:mx-[80px]   "
         initial={{ opacity: 0, scale: 0.95 }}
-        animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+        animate={
+          isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }
+        }
         transition={{ duration: 0.8, delay: 0.5 }}
       >
         <motion.h2
@@ -94,10 +105,14 @@ const AboutUs = () => {
           Why Us?
         </motion.h2>
         <div className="flex flex-wrap justify-center gap-2">
-  {cardContent.map((card, index) => (
-    <AboutUsCard key={index} title={card.title} content={card.content} />
-  ))}
-</div>
+          {cardContent.map((card, index) => (
+            <AboutUsCard
+              key={index}
+              title={card.title}
+              content={card.content}
+            />
+          ))}
+        </div>
       </motion.div>
     </section>
   );
